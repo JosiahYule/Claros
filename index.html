@@ -26,7 +26,7 @@
     --terra-light: #9B3B24;
     --border:      rgba(20, 20, 18, 0.1);
     --border-mid:  rgba(20, 20, 18, 0.18);
-    --frame-line:  rgba(122, 46, 28, 0.32);
+    --frame-line:  rgba(122, 46, 28, 0.4);
     --ease:        cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -781,15 +781,13 @@
     const [left, right] = svg.querySelectorAll('.frame-line');
     const w = window.innerWidth;
     const h = window.innerHeight;
-    const inset = 10;
     const navHeight = 64;
     const heroPaddingTop = w <= 680 ? 64 : 88;
-    const logoCenterY = navHeight + heroPaddingTop + 80;
-    const logoLeftX = w / 2 - 80;
-    const logoRightX = w / 2 + 80;
+    const logoBottomY = navHeight + heroPaddingTop + 160;
+    const inset = w <= 680 ? 16 : w <= 1100 ? 40 : Math.min((w - 1000) / 2, 280);
     svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-    left.setAttribute('d', `M ${logoLeftX} ${logoCenterY} L ${logoLeftX} ${inset} L ${inset} ${inset} L ${inset} ${h - inset}`);
-    right.setAttribute('d', `M ${logoRightX} ${logoCenterY} L ${logoRightX} ${inset} L ${w - inset} ${inset} L ${w - inset} ${h - inset}`);
+    left.setAttribute('d', `M ${w / 2} ${logoBottomY} L ${inset} ${logoBottomY} L ${inset} ${h}`);
+    right.setAttribute('d', `M ${w / 2} ${logoBottomY} L ${w - inset} ${logoBottomY} L ${w - inset} ${h}`);
   }
   drawPageFrame();
   window.addEventListener('resize', drawPageFrame);
