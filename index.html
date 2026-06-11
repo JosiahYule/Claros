@@ -135,39 +135,29 @@
   .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
   /* PAGES */
-  .page { display: none; padding-top: 64px; min-height: 100vh; }
-  .page.active { display: block; animation: pageFade 0.5s var(--ease); }
+  .page {
+    display: none;
+    margin: 88px clamp(16px, 4vw, 64px) 24px;
+    border: 1px solid var(--frame-line);
+    min-height: calc(100vh - 112px);
+  }
+  .page.active {
+    display: block;
+    animation: pageFade 0.5s var(--ease), frameFade 1.2s var(--ease) 0.3s backwards;
+  }
 
   @keyframes pageFade {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* FRAME */
-  .page-frame {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 300;
-  }
-
-  .frame-line {
-    fill: none;
-    stroke: var(--frame-line);
-    stroke-width: 1;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    animation: drawFrame 1.8s var(--ease) 1.05s forwards;
-  }
-
-  @keyframes drawFrame {
-    to { stroke-dashoffset: 0; }
+  @keyframes frameFade {
+    from { border-color: transparent; }
+    to   { border-color: var(--frame-line); }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .frame-line { animation: none; stroke-dashoffset: 0; }
+    .page.active { animation: none; }
   }
 
   /* BUTTONS */
@@ -593,11 +583,6 @@
 </head>
 <body>
 
-<svg class="page-frame" id="page-frame" aria-hidden="true">
-  <path class="frame-line" pathLength="1" d=""></path>
-  <path class="frame-line" pathLength="1" d=""></path>
-</svg>
-
 <nav>
   <a class="nav-brand" onclick="showPage('home')">Claros</a>
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">
@@ -776,21 +761,6 @@
     document.getElementById('nav-toggle').classList.remove('open');
   }
 
-  function drawPageFrame() {
-    const svg = document.getElementById('page-frame');
-    const [left, right] = svg.querySelectorAll('.frame-line');
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    const navHeight = 64;
-    const heroPaddingTop = w <= 680 ? 64 : 88;
-    const logoBottomY = navHeight + heroPaddingTop + 160;
-    const inset = w <= 680 ? 16 : w <= 1100 ? 40 : Math.min((w - 1000) / 2, 280);
-    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-    left.setAttribute('d', `M ${w / 2} ${logoBottomY} L ${inset} ${logoBottomY} L ${inset} ${h}`);
-    right.setAttribute('d', `M ${w / 2} ${logoBottomY} L ${w - inset} ${logoBottomY} L ${w - inset} ${h}`);
-  }
-  drawPageFrame();
-  window.addEventListener('resize', drawPageFrame);
 </script>
 
 </body>
