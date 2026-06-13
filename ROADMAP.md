@@ -20,14 +20,14 @@ brand is not trend-chasing, it's literally paper.
 
 ## Phases
 
-### Phase 1 — Material & atmosphere  *(highest impact; in progress)*
+### Phase 1 — Material & atmosphere  *(done)*
 - Subtle paper-grain / film-grain overlay (SVG `fractalNoise`, low opacity, fixed).
 - Ground-vs-page relationship: a warm ambient ground; the framed page floats above
   it on a soft, large, warm-tinted shadow + faint vignette — a *lit object*.
 - Expanded tonal palette: distinct paper vs. ground tones, true-ink dark vs. soft
   body gray, one restrained secondary accent.
 
-### Phase 2 — Typographic drama
+### Phase 2 — Typographic drama  *(done)*
 - One genuine display moment (viewport-scaled type at hero / section openers).
 - Tighter scale ramp, measure, leading; deliberate drop caps, pull quotes,
   marginalia to break text walls (esp. About).
