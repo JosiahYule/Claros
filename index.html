@@ -495,31 +495,33 @@
     padding: 5rem 3rem;
   }
 
-  /* MARGINALIA & ORNAMENTS — asymmetric leaves on wide viewports */
-  .margin-ornament {
-    display: none;
-  }
-
+  /* ASYMMETRIC LAYOUT — shift content left on wide viewports */
   @media (min-width: 1140px) {
     .page-content,
     .contact-wrapper {
       margin-left: clamp(2rem, 6vw, 5rem);
       margin-right: auto;
     }
+  }
 
-    .margin-ornament {
-      display: block;
-      position: absolute;
-      top: 6.5rem;
-      right: clamp(1.5rem, 5vw, 4.5rem);
-      width: 56px;
-      color: var(--terra);
-      opacity: 0.4;
-    }
-    .margin-ornament svg {
-      width: 100%;
-      height: auto;
-      display: block;
+  /* CORNER ORNAMENT — leafy flourish at the bottom-right of each page frame */
+  .corner-ornament {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 92px;
+    color: var(--frame-line);
+    pointer-events: none;
+    transform: scaleY(-1);
+  }
+  .corner-ornament svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (min-width: 700px) {
+    .corner-ornament {
+      width: 130px;
     }
   }
 
@@ -719,15 +721,6 @@
   }
   footer a:hover { color: var(--text); border-color: var(--border-mid); }
 
-  .colophon-set {
-    font-family: 'EB Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 0.92rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    max-width: 360px;
-  }
-
   .colophon-meta {
     display: flex;
     align-items: center;
@@ -848,6 +841,20 @@
 
 <!-- PAGE: HOME -->
 <div class="page active" id="page-home">
+  <div class="corner-ornament" aria-hidden="true">
+    <svg viewBox="0 0 185 175">
+      <path d="M 170 10 C 120 2 70 6 15 18" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M0 0 C 9.1 -4.9 21.3 -4.9 30.4 0 C 21.3 4.9 9.1 4.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.0 8.0) rotate(-53.6)"/>
+      <path d="M0 0 C 8.1 -4.3 18.8 -4.3 26.9 0 C 18.8 4.3 8.1 4.3 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(121.8 5.9) rotate(-119.2)"/>
+      <path d="M0 0 C 7.0 -3.7 16.2 -3.7 23.2 0 C 16.2 3.7 7.0 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(86.7 7.0) rotate(295.6)"/>
+      <path d="M0 0 C 5.8 -3.1 13.4 -3.1 19.2 0 C 13.4 3.1 5.8 3.1 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(47.4 11.8) rotate(230.8)"/>
+      <path d="M 160 18 C 172 60 148 110 158 165" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M0 0 C 8.5 -4.5 19.7 -4.5 28.2 0 C 19.7 4.5 8.5 4.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.9 33.5) rotate(24.3)"/>
+      <path d="M0 0 C 7.4 -3.9 17.2 -3.9 24.6 0 C 17.2 3.9 7.4 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.2 66.3) rotate(-24.2)"/>
+      <path d="M0 0 C 6.3 -3.4 14.7 -3.4 21.0 0 C 14.7 3.4 6.3 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(157.8 101.6) rotate(36.8)"/>
+      <path d="M0 0 C 5.2 -2.8 12.1 -2.8 17.2 0 C 12.1 2.8 5.2 2.8 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.6 140.6) rotate(-31.5)"/>
+    </svg>
+  </div>
 
   <div class="hero">
     <div class="hero-emblem">
@@ -925,7 +932,6 @@
   <footer>
     <p class="colophon-mark" aria-hidden="true">&#10086;</p>
     <p class="colophon-name">Claros Editorial Consultancy</p>
-    <p class="colophon-set">Set in Newsreader &amp; EB&nbsp;Garamond, in the year <span class="colophon-year">MMXXVI</span>.</p>
     <div class="colophon-meta">
       <span><a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a></span>
       <span>&copy; <span class="copyright-year">2026</span></span>
@@ -935,23 +941,23 @@
 
 <!-- PAGE: ABOUT -->
 <div class="page" id="page-about">
+  <div class="corner-ornament" aria-hidden="true">
+    <svg viewBox="0 0 185 175">
+      <path d="M 170 10 C 120 2 70 6 15 18" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M0 0 C 9.1 -4.9 21.3 -4.9 30.4 0 C 21.3 4.9 9.1 4.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.0 8.0) rotate(-53.6)"/>
+      <path d="M0 0 C 8.1 -4.3 18.8 -4.3 26.9 0 C 18.8 4.3 8.1 4.3 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(121.8 5.9) rotate(-119.2)"/>
+      <path d="M0 0 C 7.0 -3.7 16.2 -3.7 23.2 0 C 16.2 3.7 7.0 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(86.7 7.0) rotate(295.6)"/>
+      <path d="M0 0 C 5.8 -3.1 13.4 -3.1 19.2 0 C 13.4 3.1 5.8 3.1 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(47.4 11.8) rotate(230.8)"/>
+      <path d="M 160 18 C 172 60 148 110 158 165" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M0 0 C 8.5 -4.5 19.7 -4.5 28.2 0 C 19.7 4.5 8.5 4.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.9 33.5) rotate(24.3)"/>
+      <path d="M0 0 C 7.4 -3.9 17.2 -3.9 24.6 0 C 17.2 3.9 7.4 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.2 66.3) rotate(-24.2)"/>
+      <path d="M0 0 C 6.3 -3.4 14.7 -3.4 21.0 0 C 14.7 3.4 6.3 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(157.8 101.6) rotate(36.8)"/>
+      <path d="M0 0 C 5.2 -2.8 12.1 -2.8 17.2 0 C 12.1 2.8 5.2 2.8 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.6 140.6) rotate(-31.5)"/>
+    </svg>
+  </div>
   <div class="running-head">
     <span>Claros Editorial Consultancy</span>
     <span class="folio">I</span>
-  </div>
-  <div class="margin-ornament" aria-hidden="true">
-    <svg viewBox="0 0 60 200">
-      <path d="M 30 198 C 26 160 34 130 28 98 C 24 66 32 34 29 6" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 7.8 -3.9 18.2 -3.9 26.0 0 C 18.2 3.9 7.8 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(28.9 180.3) rotate(-149.3)"/>
-      <path d="M0 0 C 7.3 -3.7 17.1 -3.7 24.4 0 C 17.1 3.7 7.3 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(29.3 155.6) rotate(-29.5)"/>
-      <path d="M0 0 C 6.8 -3.4 16.0 -3.4 22.8 0 C 16.0 3.4 6.8 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(30.2 132.2) rotate(-146.7)"/>
-      <path d="M0 0 C 6.4 -3.2 14.8 -3.2 21.2 0 C 14.8 3.2 6.4 3.2 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(29.6 109.5) rotate(-37.4)"/>
-      <path d="M0 0 C 5.9 -2.9 13.7 -2.9 19.6 0 C 13.7 2.9 5.9 2.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(27.0 86.5) rotate(-150.6)"/>
-      <path d="M0 0 C 5.4 -2.7 12.6 -2.7 18.0 0 C 12.6 2.7 5.4 2.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(27.3 63.6) rotate(-29.0)"/>
-      <path d="M0 0 C 4.9 -2.5 11.5 -2.5 16.4 0 C 11.5 2.5 4.9 2.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(28.8 41.3) rotate(-144.0)"/>
-      <path d="M0 0 C 4.4 -2.2 10.4 -2.2 14.8 0 C 10.4 2.2 4.4 2.2 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(29.7 21.5) rotate(-31.6)"/>
-      <path d="M0 0 C 4.8 -2.6 11.2 -2.6 16.0 0 C 11.2 2.6 4.8 2.6 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(29.1 6.8) rotate(-185.7)"/>
-    </svg>
   </div>
   <div class="page-content">
     <h2 class="page-headline">About the Editor</h2>
@@ -990,7 +996,6 @@
   <footer>
     <p class="colophon-mark" aria-hidden="true">&#10086;</p>
     <p class="colophon-name">Claros Editorial Consultancy</p>
-    <p class="colophon-set">Set in Newsreader &amp; EB&nbsp;Garamond, in the year <span class="colophon-year">MMXXVI</span>.</p>
     <div class="colophon-meta">
       <span><a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a></span>
       <span>&copy; <span class="copyright-year">2026</span></span>
@@ -1000,6 +1005,20 @@
 
 <!-- PAGE: IDEAS -->
 <div class="page" id="page-ideas">
+  <div class="corner-ornament" aria-hidden="true">
+    <svg viewBox="0 0 185 175">
+      <path d="M 170 10 C 120 2 70 6 15 18" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M0 0 C 9.1 -4.9 21.3 -4.9 30.4 0 C 21.3 4.9 9.1 4.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.0 8.0) rotate(-53.6)"/>
+      <path d="M0 0 C 8.1 -4.3 18.8 -4.3 26.9 0 C 18.8 4.3 8.1 4.3 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(121.8 5.9) rotate(-119.2)"/>
+      <path d="M0 0 C 7.0 -3.7 16.2 -3.7 23.2 0 C 16.2 3.7 7.0 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(86.7 7.0) rotate(295.6)"/>
+      <path d="M0 0 C 5.8 -3.1 13.4 -3.1 19.2 0 C 13.4 3.1 5.8 3.1 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(47.4 11.8) rotate(230.8)"/>
+      <path d="M 160 18 C 172 60 148 110 158 165" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M0 0 C 8.5 -4.5 19.7 -4.5 28.2 0 C 19.7 4.5 8.5 4.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.9 33.5) rotate(24.3)"/>
+      <path d="M0 0 C 7.4 -3.9 17.2 -3.9 24.6 0 C 17.2 3.9 7.4 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.2 66.3) rotate(-24.2)"/>
+      <path d="M0 0 C 6.3 -3.4 14.7 -3.4 21.0 0 C 14.7 3.4 6.3 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(157.8 101.6) rotate(36.8)"/>
+      <path d="M0 0 C 5.2 -2.8 12.1 -2.8 17.2 0 C 12.1 2.8 5.2 2.8 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.6 140.6) rotate(-31.5)"/>
+    </svg>
+  </div>
   <div class="running-head">
     <span>Claros Editorial Consultancy</span>
     <span class="folio">II</span>
@@ -1051,7 +1070,6 @@
   <footer>
     <p class="colophon-mark" aria-hidden="true">&#10086;</p>
     <p class="colophon-name">Claros Editorial Consultancy</p>
-    <p class="colophon-set">Set in Newsreader &amp; EB&nbsp;Garamond, in the year <span class="colophon-year">MMXXVI</span>.</p>
     <div class="colophon-meta">
       <span><a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a></span>
       <span>&copy; <span class="copyright-year">2026</span></span>
@@ -1061,23 +1079,23 @@
 
 <!-- PAGE: CONTACT -->
 <div class="page" id="page-contact">
+  <div class="corner-ornament" aria-hidden="true">
+    <svg viewBox="0 0 185 175">
+      <path d="M 170 10 C 120 2 70 6 15 18" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M0 0 C 9.1 -4.9 21.3 -4.9 30.4 0 C 21.3 4.9 9.1 4.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.0 8.0) rotate(-53.6)"/>
+      <path d="M0 0 C 8.1 -4.3 18.8 -4.3 26.9 0 C 18.8 4.3 8.1 4.3 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(121.8 5.9) rotate(-119.2)"/>
+      <path d="M0 0 C 7.0 -3.7 16.2 -3.7 23.2 0 C 16.2 3.7 7.0 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(86.7 7.0) rotate(295.6)"/>
+      <path d="M0 0 C 5.8 -3.1 13.4 -3.1 19.2 0 C 13.4 3.1 5.8 3.1 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(47.4 11.8) rotate(230.8)"/>
+      <path d="M 160 18 C 172 60 148 110 158 165" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M0 0 C 8.5 -4.5 19.7 -4.5 28.2 0 C 19.7 4.5 8.5 4.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.9 33.5) rotate(24.3)"/>
+      <path d="M0 0 C 7.4 -3.9 17.2 -3.9 24.6 0 C 17.2 3.9 7.4 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.2 66.3) rotate(-24.2)"/>
+      <path d="M0 0 C 6.3 -3.4 14.7 -3.4 21.0 0 C 14.7 3.4 6.3 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(157.8 101.6) rotate(36.8)"/>
+      <path d="M0 0 C 5.2 -2.8 12.1 -2.8 17.2 0 C 12.1 2.8 5.2 2.8 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.6 140.6) rotate(-31.5)"/>
+    </svg>
+  </div>
   <div class="running-head">
     <span>Claros Editorial Consultancy</span>
     <span class="folio">III</span>
-  </div>
-  <div class="margin-ornament" aria-hidden="true">
-    <svg viewBox="0 0 60 200">
-      <path d="M 30 198 C 26 160 34 130 28 98 C 24 66 32 34 29 6" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 7.8 -3.9 18.2 -3.9 26.0 0 C 18.2 3.9 7.8 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(28.9 180.3) rotate(-149.3)"/>
-      <path d="M0 0 C 7.3 -3.7 17.1 -3.7 24.4 0 C 17.1 3.7 7.3 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(29.3 155.6) rotate(-29.5)"/>
-      <path d="M0 0 C 6.8 -3.4 16.0 -3.4 22.8 0 C 16.0 3.4 6.8 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(30.2 132.2) rotate(-146.7)"/>
-      <path d="M0 0 C 6.4 -3.2 14.8 -3.2 21.2 0 C 14.8 3.2 6.4 3.2 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(29.6 109.5) rotate(-37.4)"/>
-      <path d="M0 0 C 5.9 -2.9 13.7 -2.9 19.6 0 C 13.7 2.9 5.9 2.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(27.0 86.5) rotate(-150.6)"/>
-      <path d="M0 0 C 5.4 -2.7 12.6 -2.7 18.0 0 C 12.6 2.7 5.4 2.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(27.3 63.6) rotate(-29.0)"/>
-      <path d="M0 0 C 4.9 -2.5 11.5 -2.5 16.4 0 C 11.5 2.5 4.9 2.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(28.8 41.3) rotate(-144.0)"/>
-      <path d="M0 0 C 4.4 -2.2 10.4 -2.2 14.8 0 C 10.4 2.2 4.4 2.2 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(29.7 21.5) rotate(-31.6)"/>
-      <path d="M0 0 C 4.8 -2.6 11.2 -2.6 16.0 0 C 11.2 2.6 4.8 2.6 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(29.1 6.8) rotate(-185.7)"/>
-    </svg>
   </div>
   <div class="contact-wrapper">
     <h2 class="contact-headline">Let&rsquo;s discuss your project</h2>
@@ -1087,7 +1105,6 @@
   <footer>
     <p class="colophon-mark" aria-hidden="true">&#10086;</p>
     <p class="colophon-name">Claros Editorial Consultancy</p>
-    <p class="colophon-set">Set in Newsreader &amp; EB&nbsp;Garamond, in the year <span class="colophon-year">MMXXVI</span>.</p>
     <div class="colophon-meta">
       <span><a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a></span>
       <span>&copy; <span class="copyright-year">2026</span></span>
