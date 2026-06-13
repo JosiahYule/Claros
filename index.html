@@ -7,7 +7,7 @@
 <meta name="description" content="Claros Editorial Consultancy provides meticulous proofreading, copy editing, line editing, and editorial consultation for think tanks, research institutions, and academics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Spectral:ital,wght@1,300;1,400&family=Crimson+Pro:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after {
     box-sizing: border-box;
@@ -169,6 +169,27 @@
     }
   }
 
+  /* RUNNING HEAD — a book-style head + folio capping each interior leaf */
+  .running-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1.4rem clamp(1.5rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--border);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 0.82rem;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.16em;
+    color: var(--text-faint);
+  }
+  .running-head .folio {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-variant-caps: normal;
+    letter-spacing: 0.05em;
+    color: var(--terra);
+  }
+
   /* BUTTONS */
   .btn {
     display: inline-flex;
@@ -239,39 +260,6 @@
     to   { opacity: 0.88; transform: scale(1); }
   }
 
-  /* TEMP: font comparison panel — remove once a hero typeface is chosen */
-  .font-switcher {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-mid);
-    padding: 0.75rem;
-    font-family: 'EB Garamond', Georgia, serif;
-    font-size: 0.85rem;
-  }
-  .font-switcher button {
-    font-family: inherit;
-    font-size: inherit;
-    text-align: left;
-    padding: 0.3rem 0.6rem;
-    border: 1px solid transparent;
-    background: transparent;
-    color: var(--text-muted);
-    cursor: pointer;
-  }
-  .font-switcher button:hover {
-    color: var(--text);
-  }
-  .font-switcher button.active {
-    border-color: var(--terra);
-    color: var(--terra);
-  }
-
   .hero-headline {
     font-family: 'Newsreader', Georgia, serif;
     font-size: clamp(2rem, 4.5vw, 3rem);
@@ -337,30 +325,24 @@
   .client-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem 1rem;
-    margin: 1.25rem 0 0 0;
+    column-gap: 2.5rem;
+    margin: 1.5rem 0 0 0;
   }
 
   .client-grid li {
     list-style: none;
-    font-size: 1.02rem;
+    font-size: 1.08rem;
     color: var(--text);
-    padding: 0.95rem 1.25rem 0.95rem 2.1rem;
+    padding: 0.55rem 0 0.55rem 1.6rem;
     position: relative;
-    border: 1px solid var(--border);
-    background: var(--bg-surface);
-    transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+    border-bottom: 1px solid var(--border);
   }
   .client-grid li::before {
-    content: '—';
+    content: '\2014';
     position: absolute;
-    left: 1.1rem;
-    color: var(--text-faint);
-    font-size: 0.8em;
-  }
-  .client-grid li:hover {
-    border-color: var(--border-mid);
-    background: var(--bg-raised);
+    left: 0;
+    color: var(--terra);
+    font-size: 0.85em;
   }
 
   .section-break {
@@ -373,12 +355,22 @@
 
   .service {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 0 2.5rem;
-    padding: 1.5rem 0;
+    grid-template-columns: 2.75rem 180px 1fr;
+    gap: 0 2.25rem;
+    padding: 1.6rem 0;
     border-bottom: 1px solid var(--border);
   }
   .service:first-of-type { border-top: 1px solid var(--border); }
+
+  .service-num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--terra);
+    padding-top: 0.3rem;
+    letter-spacing: 0.04em;
+  }
 
   .service-name {
     font-family: 'EB Garamond', Georgia, serif;
@@ -561,31 +553,100 @@
     margin: 0 auto 2.5rem;
   }
 
-  /* FOOTER */
+  /* FOOTER — set as a printer's colophon */
   footer {
-    padding: 2.5rem 3rem;
+    padding: 3rem 3rem 3.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.7rem;
     text-align: center;
-    font-size: 0.95rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  .colophon-mark {
+    font-size: 1.15rem;
+    letter-spacing: 0.3em;
+    color: var(--terra);
+    margin-bottom: 0.4rem;
+  }
+
+  .colophon-name {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1rem;
     font-variant-caps: all-small-caps;
-    letter-spacing: 0.08em;
-    color: var(--text-faint);
+    letter-spacing: 0.18em;
+    color: var(--text);
   }
 
   footer a {
     color: var(--text-faint);
     text-decoration: none;
-    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
   }
-  footer a:hover { color: var(--text); }
+  footer a:hover { color: var(--text); border-color: var(--border-mid); }
 
-  .footer-links {
+  .colophon-set {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 360px;
+  }
+
+  .colophon-meta {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    margin-top: 0.2rem;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 0.85rem;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+  }
+  .colophon-meta span:not(:last-child)::after {
+    content: '\00b7';
+    margin-left: 1.25rem;
+    color: var(--border-mid);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* IDEAS ATTRIBUTION */
+  .ideas-attribution {
+    margin-top: 2.5rem;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 0.95rem;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+  }
+  .ideas-attribution cite { font-style: normal; }
+  .ideas-attribution em { font-style: italic; font-variant-caps: normal; letter-spacing: 0.02em; }
+  .ideas-epigraph p::first-line { color: var(--text); }
+  .ideas-open-quote {
+    display: block;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 3rem;
+    line-height: 0.5;
+    color: var(--terra);
+    margin-bottom: 1.2rem;
   }
 
   /* RESPONSIVE */
@@ -621,12 +682,19 @@
     nav { padding: 0 1.5rem; }
     .hero { padding: 4rem 1.5rem; }
     .home-content, .page-content { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .service { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.5rem 0; }
+    .running-head { padding: 1.2rem 1.5rem; }
+    .service {
+      grid-template-columns: auto 1fr;
+      gap: 0.4rem 1.25rem;
+      padding: 1.5rem 0;
+    }
+    .service-desc { grid-column: 1 / -1; }
     .service-name { font-size: 1.15rem; }
-    .client-grid { grid-template-columns: 1fr; }
+    .client-grid { grid-template-columns: 1fr; column-gap: 0; }
     .ideas-wrapper { padding: 4rem 1.5rem; }
     .contact-wrapper { padding: 4.5rem 1.5rem; }
-    .footer-links { flex-direction: column; gap: 0.5rem; }
+    .colophon-meta { flex-direction: column; gap: 0.4rem; }
+    .colophon-meta span:not(:last-child)::after { content: none; }
   }
 </style>
 </head>
@@ -658,6 +726,7 @@
 
   <div class="home-content">
 
+    <section class="reveal">
     <p class="section-label">Who we serve</p>
 
     <p class="intro-text">Claros Editorial Consultancy provides editing of technical and research documents for:</p>
@@ -668,33 +737,43 @@
       <li>Professional Organisations</li>
       <li>Academics</li>
     </ul>
+    </section>
 
     <p class="section-break" aria-hidden="true">&#8258;</p>
+
+    <section class="reveal">
     <p class="section-label">Services</p>
 
     <div class="service">
+      <span class="service-num">I.</span>
       <span class="service-name">Proofreading</span>
       <p class="service-desc">A guarantee that your text is free of any errors, omissions, or typos.</p>
     </div>
 
     <div class="service">
+      <span class="service-num">II.</span>
       <span class="service-name">Copy Editing</span>
       <p class="service-desc">The text tightened and reformulated with an eye towards clarity and brevity. The overall structure of the text is not changed or commented upon.</p>
     </div>
 
     <div class="service">
+      <span class="service-num">III.</span>
       <span class="service-name">Line Editing</span>
       <p class="service-desc">Comprehensive comments and suggestions on the overall style and structure, informed by the context, audience, and intentionality of the text.</p>
     </div>
 
     <div class="service">
+      <span class="service-num">IV.</span>
       <span class="service-name">Editorial Consultation</span>
       <p class="service-desc">Collaboration from ideation to publication — capturing your insight and ideas to generate the best possible text.</p>
     </div>
 
     <p class="service-note">Unless requested otherwise, each level of service includes the preceding services.</p>
+    </section>
 
     <p class="section-break" aria-hidden="true">&#8258;</p>
+
+    <section class="reveal">
     <p class="section-label">Process</p>
 
     <p class="process-text">Providing as much notice as possible, you can email your text to <a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a> with any notes, designate a deadline, and the work will be returned to you by or prior to that date.</p>
@@ -702,13 +781,16 @@
     <div class="record-callout">
       I have not once been late in returning work. I can accommodate your busy schedule.
     </div>
+    </section>
 
   </div>
 
   <footer>
-    <span>Claros Editorial Consultancy</span>
-    <div class="footer-links">
-      <a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a>
+    <p class="colophon-mark" aria-hidden="true">&#10086;</p>
+    <p class="colophon-name">Claros Editorial Consultancy</p>
+    <p class="colophon-set">Set in Newsreader &amp; EB&nbsp;Garamond, in the year <span class="colophon-year">MMXXVI</span>.</p>
+    <div class="colophon-meta">
+      <span><a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a></span>
       <span>&copy; <span class="copyright-year">2026</span></span>
     </div>
   </footer>
@@ -716,6 +798,10 @@
 
 <!-- PAGE: ABOUT -->
 <div class="page" id="page-about">
+  <div class="running-head">
+    <span>Claros Editorial Consultancy</span>
+    <span class="folio">I</span>
+  </div>
   <div class="page-content">
     <h2 class="page-headline">About the Editor</h2>
 
@@ -749,9 +835,11 @@
 
   </div>
   <footer>
-    <span>Claros Editorial Consultancy</span>
-    <div class="footer-links">
-      <a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a>
+    <p class="colophon-mark" aria-hidden="true">&#10086;</p>
+    <p class="colophon-name">Claros Editorial Consultancy</p>
+    <p class="colophon-set">Set in Newsreader &amp; EB&nbsp;Garamond, in the year <span class="colophon-year">MMXXVI</span>.</p>
+    <div class="colophon-meta">
+      <span><a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a></span>
       <span>&copy; <span class="copyright-year">2026</span></span>
     </div>
   </footer>
@@ -759,15 +847,23 @@
 
 <!-- PAGE: IDEAS -->
 <div class="page" id="page-ideas">
+  <div class="running-head">
+    <span>Claros Editorial Consultancy</span>
+    <span class="folio">II</span>
+  </div>
   <div class="ideas-wrapper">
     <div class="ideas-epigraph">
-      <p>&ldquo;Great is the stream of the Assyrian river, but much filth of earth and much refuse it carries on its waters. And not of every water do the Melissae carry to Deo, but of the trickling stream that springs from a holy fountain, pure and undefiled, the very crown of waters.&rdquo;</p>
+      <span class="ideas-open-quote" aria-hidden="true">&ldquo;</span>
+      <p>Great is the stream of the Assyrian river, but much filth of earth and much refuse it carries on its waters. And not of every water do the Melissae carry to Deo, but of the trickling stream that springs from a holy fountain, pure and undefiled, the very crown of waters.&rdquo;</p>
+      <p class="ideas-attribution"><cite>Callimachus</cite>, <em>Hymn to Apollo</em></p>
     </div>
   </div>
   <footer>
-    <span>Claros Editorial Consultancy</span>
-    <div class="footer-links">
-      <a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a>
+    <p class="colophon-mark" aria-hidden="true">&#10086;</p>
+    <p class="colophon-name">Claros Editorial Consultancy</p>
+    <p class="colophon-set">Set in Newsreader &amp; EB&nbsp;Garamond, in the year <span class="colophon-year">MMXXVI</span>.</p>
+    <div class="colophon-meta">
+      <span><a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a></span>
       <span>&copy; <span class="copyright-year">2026</span></span>
     </div>
   </footer>
@@ -775,26 +871,24 @@
 
 <!-- PAGE: CONTACT -->
 <div class="page" id="page-contact">
+  <div class="running-head">
+    <span>Claros Editorial Consultancy</span>
+    <span class="folio">III</span>
+  </div>
   <div class="contact-wrapper">
     <h2 class="contact-headline">Let&rsquo;s discuss your project</h2>
     <p class="contact-text">Whether you have a manuscript ready for proofreading or a larger editorial collaboration in mind, I&rsquo;d be glad to hear from you. Send your text along with any notes and your deadline, and the work will be returned to you by or prior to that date.</p>
     <a class="btn btn-primary" href="mailto:editor@claroseditorial.com">Email editor@claroseditorial.com</a>
   </div>
   <footer>
-    <span>Claros Editorial Consultancy</span>
-    <div class="footer-links">
-      <a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a>
+    <p class="colophon-mark" aria-hidden="true">&#10086;</p>
+    <p class="colophon-name">Claros Editorial Consultancy</p>
+    <p class="colophon-set">Set in Newsreader &amp; EB&nbsp;Garamond, in the year <span class="colophon-year">MMXXVI</span>.</p>
+    <div class="colophon-meta">
+      <span><a href="mailto:editor@claroseditorial.com">editor@claroseditorial.com</a></span>
       <span>&copy; <span class="copyright-year">2026</span></span>
     </div>
   </footer>
-</div>
-
-<!-- TEMP: font comparison panel — remove once a hero typeface is chosen -->
-<div class="font-switcher">
-  <button data-font="Newsreader" class="active">Newsreader</button>
-  <button data-font="Cormorant Garamond">Cormorant Garamond</button>
-  <button data-font="Spectral">Spectral</button>
-  <button data-font="Crimson Pro">Crimson Pro</button>
 </div>
 
 <script>
@@ -837,16 +931,23 @@
   const heroMark = document.querySelector('.hero-mark');
   if (heroMark) heroMark.textContent = toRoman(currentYear);
   document.querySelectorAll('.copyright-year').forEach(el => el.textContent = currentYear);
+  document.querySelectorAll('.colophon-year').forEach(el => el.textContent = toRoman(currentYear));
 
-  // TEMP: font comparison panel — remove once a hero typeface is chosen
-  document.querySelectorAll('.font-switcher button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const headline = document.querySelector('.hero-headline');
-      headline.style.fontFamily = `'${btn.dataset.font}', Georgia, serif`;
-      document.querySelectorAll('.font-switcher button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
+  /* Quiet scroll-reveal — sections rise in gently as they enter view */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+  }
 
 </script>
 
