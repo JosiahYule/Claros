@@ -504,27 +504,6 @@
     }
   }
 
-  /* CORNER ORNAMENT — leafy flourish at the bottom-right of each page frame */
-  .corner-ornament {
-    position: absolute;
-    bottom: -1px;
-    right: -1px;
-    width: 92px;
-    color: var(--frame-line);
-    pointer-events: none;
-    transform: scaleY(-1);
-  }
-  .corner-ornament svg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  @media (min-width: 700px) {
-    .corner-ornament {
-      width: 130px;
-    }
-  }
-
   .page-headline {
     font-family: 'Newsreader', Georgia, serif;
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
@@ -841,20 +820,6 @@
 
 <!-- PAGE: HOME -->
 <div class="page active" id="page-home">
-  <div class="corner-ornament" aria-hidden="true">
-    <svg viewBox="0 0 185 175">
-      <path d="M 170 10 C 120 2 70 6 15 18" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 9.1 -4.9 21.3 -4.9 30.4 0 C 21.3 4.9 9.1 4.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.0 8.0) rotate(-53.6)"/>
-      <path d="M0 0 C 8.1 -4.3 18.8 -4.3 26.9 0 C 18.8 4.3 8.1 4.3 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(121.8 5.9) rotate(-119.2)"/>
-      <path d="M0 0 C 7.0 -3.7 16.2 -3.7 23.2 0 C 16.2 3.7 7.0 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(86.7 7.0) rotate(295.6)"/>
-      <path d="M0 0 C 5.8 -3.1 13.4 -3.1 19.2 0 C 13.4 3.1 5.8 3.1 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(47.4 11.8) rotate(230.8)"/>
-      <path d="M 160 18 C 172 60 148 110 158 165" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 8.5 -4.5 19.7 -4.5 28.2 0 C 19.7 4.5 8.5 4.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.9 33.5) rotate(24.3)"/>
-      <path d="M0 0 C 7.4 -3.9 17.2 -3.9 24.6 0 C 17.2 3.9 7.4 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.2 66.3) rotate(-24.2)"/>
-      <path d="M0 0 C 6.3 -3.4 14.7 -3.4 21.0 0 C 14.7 3.4 6.3 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(157.8 101.6) rotate(36.8)"/>
-      <path d="M0 0 C 5.2 -2.8 12.1 -2.8 17.2 0 C 12.1 2.8 5.2 2.8 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.6 140.6) rotate(-31.5)"/>
-    </svg>
-  </div>
 
   <div class="hero">
     <div class="hero-emblem">
@@ -941,20 +906,6 @@
 
 <!-- PAGE: ABOUT -->
 <div class="page" id="page-about">
-  <div class="corner-ornament" aria-hidden="true">
-    <svg viewBox="0 0 185 175">
-      <path d="M 170 10 C 120 2 70 6 15 18" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 9.1 -4.9 21.3 -4.9 30.4 0 C 21.3 4.9 9.1 4.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.0 8.0) rotate(-53.6)"/>
-      <path d="M0 0 C 8.1 -4.3 18.8 -4.3 26.9 0 C 18.8 4.3 8.1 4.3 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(121.8 5.9) rotate(-119.2)"/>
-      <path d="M0 0 C 7.0 -3.7 16.2 -3.7 23.2 0 C 16.2 3.7 7.0 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(86.7 7.0) rotate(295.6)"/>
-      <path d="M0 0 C 5.8 -3.1 13.4 -3.1 19.2 0 C 13.4 3.1 5.8 3.1 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(47.4 11.8) rotate(230.8)"/>
-      <path d="M 160 18 C 172 60 148 110 158 165" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 8.5 -4.5 19.7 -4.5 28.2 0 C 19.7 4.5 8.5 4.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.9 33.5) rotate(24.3)"/>
-      <path d="M0 0 C 7.4 -3.9 17.2 -3.9 24.6 0 C 17.2 3.9 7.4 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.2 66.3) rotate(-24.2)"/>
-      <path d="M0 0 C 6.3 -3.4 14.7 -3.4 21.0 0 C 14.7 3.4 6.3 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(157.8 101.6) rotate(36.8)"/>
-      <path d="M0 0 C 5.2 -2.8 12.1 -2.8 17.2 0 C 12.1 2.8 5.2 2.8 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.6 140.6) rotate(-31.5)"/>
-    </svg>
-  </div>
   <div class="running-head">
     <span>Claros Editorial Consultancy</span>
     <span class="folio">I</span>
@@ -1005,20 +956,6 @@
 
 <!-- PAGE: IDEAS -->
 <div class="page" id="page-ideas">
-  <div class="corner-ornament" aria-hidden="true">
-    <svg viewBox="0 0 185 175">
-      <path d="M 170 10 C 120 2 70 6 15 18" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 9.1 -4.9 21.3 -4.9 30.4 0 C 21.3 4.9 9.1 4.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.0 8.0) rotate(-53.6)"/>
-      <path d="M0 0 C 8.1 -4.3 18.8 -4.3 26.9 0 C 18.8 4.3 8.1 4.3 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(121.8 5.9) rotate(-119.2)"/>
-      <path d="M0 0 C 7.0 -3.7 16.2 -3.7 23.2 0 C 16.2 3.7 7.0 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(86.7 7.0) rotate(295.6)"/>
-      <path d="M0 0 C 5.8 -3.1 13.4 -3.1 19.2 0 C 13.4 3.1 5.8 3.1 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(47.4 11.8) rotate(230.8)"/>
-      <path d="M 160 18 C 172 60 148 110 158 165" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 8.5 -4.5 19.7 -4.5 28.2 0 C 19.7 4.5 8.5 4.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.9 33.5) rotate(24.3)"/>
-      <path d="M0 0 C 7.4 -3.9 17.2 -3.9 24.6 0 C 17.2 3.9 7.4 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.2 66.3) rotate(-24.2)"/>
-      <path d="M0 0 C 6.3 -3.4 14.7 -3.4 21.0 0 C 14.7 3.4 6.3 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(157.8 101.6) rotate(36.8)"/>
-      <path d="M0 0 C 5.2 -2.8 12.1 -2.8 17.2 0 C 12.1 2.8 5.2 2.8 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.6 140.6) rotate(-31.5)"/>
-    </svg>
-  </div>
   <div class="running-head">
     <span>Claros Editorial Consultancy</span>
     <span class="folio">II</span>
@@ -1079,20 +1016,6 @@
 
 <!-- PAGE: CONTACT -->
 <div class="page" id="page-contact">
-  <div class="corner-ornament" aria-hidden="true">
-    <svg viewBox="0 0 185 175">
-      <path d="M 170 10 C 120 2 70 6 15 18" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 9.1 -4.9 21.3 -4.9 30.4 0 C 21.3 4.9 9.1 4.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.0 8.0) rotate(-53.6)"/>
-      <path d="M0 0 C 8.1 -4.3 18.8 -4.3 26.9 0 C 18.8 4.3 8.1 4.3 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(121.8 5.9) rotate(-119.2)"/>
-      <path d="M0 0 C 7.0 -3.7 16.2 -3.7 23.2 0 C 16.2 3.7 7.0 3.7 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(86.7 7.0) rotate(295.6)"/>
-      <path d="M0 0 C 5.8 -3.1 13.4 -3.1 19.2 0 C 13.4 3.1 5.8 3.1 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(47.4 11.8) rotate(230.8)"/>
-      <path d="M 160 18 C 172 60 148 110 158 165" fill="none" stroke="currentColor" stroke-width="1"/>
-      <path d="M0 0 C 8.5 -4.5 19.7 -4.5 28.2 0 C 19.7 4.5 8.5 4.5 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.9 33.5) rotate(24.3)"/>
-      <path d="M0 0 C 7.4 -3.9 17.2 -3.9 24.6 0 C 17.2 3.9 7.4 3.9 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(162.2 66.3) rotate(-24.2)"/>
-      <path d="M0 0 C 6.3 -3.4 14.7 -3.4 21.0 0 C 14.7 3.4 6.3 3.4 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(157.8 101.6) rotate(36.8)"/>
-      <path d="M0 0 C 5.2 -2.8 12.1 -2.8 17.2 0 C 12.1 2.8 5.2 2.8 0 0 Z" fill="none" stroke="currentColor" stroke-width="1" transform="translate(155.6 140.6) rotate(-31.5)"/>
-    </svg>
-  </div>
   <div class="running-head">
     <span>Claros Editorial Consultancy</span>
     <span class="folio">III</span>
