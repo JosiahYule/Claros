@@ -38,11 +38,21 @@ brand is not trend-chasing, it's literally paper.
   hover underline, depth on hover (button lift, service rows) — all
   `prefers-reduced-motion` safe.
 
-### Phase 4 — Composition & polish
-- Hero recomposed from "empty" to "composed" (layered, asymmetric, anchored).
-- Disciplined baseline/column grid so asymmetry reads as intentional.
-- Favicon, OG/social image, meta, font-loading strategy, replace the base64 hero
-  image with an optimized asset, contrast + focus-state accessibility pass.
+### Phase 4 — Composition & polish  *(done)*
+- Hero recomposed from "empty" to "composed" (Greek headline + English gloss +
+  year mark — layered, anchored).
+- Pastel terracotta ground replacing the beige, carried through the vignette and
+  shadow tints.
+- Favicon (inline SVG), OG/Twitter meta, replaced the 197KB base64 hero emblem
+  with an optimized 320px WebP asset (~37KB) in `assets/`, focus-visible
+  accessibility states site-wide.
+
+### Remaining / future polish
+- Disciplined baseline/column grid audit for the asymmetric layout.
+- `--text-faint` runs ~3.5:1 against paper in several secondary labels
+  (running head, colophon, attributions) — pre-existing, below AA 4.5:1 for
+  body text; a deliberate token change would need a full visual pass.
+- Mobile Contact page CTA button overflows the viewport (`white-space: nowrap`).
 
 ## Deliberately avoided
 Heavy 3D/WebGL, glassmorphism, scroll-jacking, neon gradients, hard brutalism —
