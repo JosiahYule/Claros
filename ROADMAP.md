@@ -32,10 +32,11 @@ brand is not trend-chasing, it's literally paper.
 - Tighter scale ramp, measure, leading; deliberate drop caps, pull quotes,
   marginalia to break text walls (esp. About).
 
-### Phase 3 — Motion & continuity
+### Phase 3 — Motion & continuity  *(done)*
 - Real page transitions (cross-fade + subtle translate) on one shared easing curve.
-- Staggered scroll-reveal, drawing link underlines, sliding nav indicator, depth on
-  hover — all `prefers-reduced-motion` safe.
+- Staggered scroll-reveal, drawing link underlines, animated active-nav brackets +
+  hover underline, depth on hover (button lift, service rows) — all
+  `prefers-reduced-motion` safe.
 
 ### Phase 4 — Composition & polish
 - Hero recomposed from "empty" to "composed" (layered, asymmetric, anchored).
