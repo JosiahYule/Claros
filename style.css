@@ -294,18 +294,23 @@ body::before {
   padding: var(--s16) var(--pad);
 }
 
-/* Torch-flame scroll cue, drawn from the seal */
+/* Aldus leaf scroll cue (❧) — a printer's fleuron pointing down */
 .scroll-cue {
   position: absolute;
   left: 50%;
   bottom: var(--s8);
   transform: translateX(-50%);
-  width: 14px;
-  height: 20px;
   z-index: 1;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='14' viewBox='0 0 10 14'%3E%3Cpath d='M5 0 C8 4 9 6 7.5 9.5 C6.8 11.5 3.2 11.5 2.5 9.5 C1.6 7 3.5 6 4 3 C4.3 5 5.2 6 6 6.5 C6 4 5 2 5 0 Z' fill='%23F0E9DB'/%3E%3C/svg%3E") center / contain no-repeat;
+  font-family: var(--display);
+  font-size: 1.4rem;
+  line-height: 1;
+  color: rgba(240, 233, 219, 0.55);
   opacity: 0;
   animation: cue-in 0.8s var(--ease) 1.3s forwards, cue-bob 2.4s ease-in-out 2.1s infinite;
+}
+
+.scroll-cue::before {
+  content: '\2767';
 }
 
 @keyframes cue-in {
@@ -636,21 +641,6 @@ dl.services dd:first-of-type {
   overflow: hidden;
 }
 
-.statement::after {
-  content: '';
-  position: absolute;
-  right: -80px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 380px;
-  height: 380px;
-  background: url('claros-seal.png') center / contain no-repeat;
-  filter: invert(1);
-  mix-blend-mode: screen;
-  opacity: 0.06;
-  pointer-events: none;
-}
-
 .statement p {
   font-family: var(--display);
   font-size: clamp(1.25rem, 2.5vw, 2rem);
@@ -732,21 +722,6 @@ dl.services dd:first-of-type {
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-.surgical::after {
-  content: '';
-  position: absolute;
-  left: -80px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 380px;
-  height: 380px;
-  background: url('claros-seal.png') center / contain no-repeat;
-  filter: invert(1);
-  mix-blend-mode: screen;
-  opacity: 0.06;
-  pointer-events: none;
 }
 
 .surgical-quote {
