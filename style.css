@@ -354,24 +354,13 @@ body::before {
   align-items: flex-start;
 }
 
-.hero-kicker {
-  font-family: var(--display);
-  font-size: var(--t-label);
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(240, 233, 219, 0.5);
-  margin-bottom: var(--s4);
-  animation: hero-fade 0.6s var(--ease) 0.3s both;
-}
-
 .hero-motto {
-  font-family: var(--body); /* EB Garamond — full polytonic Greek coverage */
-  font-size: clamp(1.85rem, 3.5vw, 2.9rem);
-  font-weight: 400;
+  font-family: 'Cormorant Garamond', var(--body), Georgia, serif;
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  font-weight: 300;
   font-style: normal;
   color: var(--cream);
-  letter-spacing: 0.06em; /* inscription-like spacing */
+  letter-spacing: 0.06em;
   line-height: 1.3;
   margin-bottom: var(--s6);
   animation: hero-rise 0.8s var(--ease) 0.5s both;
@@ -824,7 +813,7 @@ dl.services dd:first-of-type {
 .site-footer {
   position: relative;
   overflow: hidden;
-  background: var(--verdigris);
+  background: var(--ink);
   padding: var(--s10) var(--pad);
 }
 
