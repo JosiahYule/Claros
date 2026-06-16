@@ -502,7 +502,7 @@ dl.services dd:first-of-type {
 
 .clients {
   list-style: none;
-  margin: var(--s6) 0 var(--s8);
+  margin: var(--s4) 0 var(--s10);
 }
 
 .clients li {
@@ -517,28 +517,57 @@ dl.services dd:first-of-type {
   border-top: 1px solid var(--rule);
 }
 
-.testimonials {
-  margin-top: var(--s8);
-}
-
-.testimonials blockquote {
-  margin-bottom: var(--s6);
-  padding-left: var(--s6);
+.testimonial-full {
   border-left: 2px solid var(--terra);
+  padding-left: var(--s6);
+  margin: 0;
 }
 
-.testimonials blockquote p {
+.testimonial-full p {
+  font-family: var(--body);
+  font-size: var(--t-base);
   font-style: italic;
   color: var(--muted);
-  margin-bottom: var(--s2);
+  line-height: 1.75;
+  margin-bottom: var(--s3);
 }
 
-.testimonials blockquote footer cite {
+.testimonial-full footer cite {
   display: block;
+  font-family: var(--display);
   font-size: var(--t-sm);
   font-style: normal;
   letter-spacing: 0.04em;
   color: var(--faint);
+}
+
+/* ─────────────────────────────────────────────
+   SURGICAL — CLOSING DARK STATEMENT
+───────────────────────────────────────────── */
+.surgical {
+  background: var(--charcoal);
+  padding: var(--s24) var(--pad);
+  text-align: center;
+}
+
+.surgical-quote {
+  font-family: var(--display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--s6);
+}
+
+.surgical-cite {
+  font-family: var(--display);
+  font-size: var(--t-label);
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(237, 231, 218, 0.4);
 }
 
 
