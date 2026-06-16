@@ -2,21 +2,21 @@
    DESIGN TOKENS
 ───────────────────────────────────────────── */
 :root {
-  /* Palette */
-  --ink:        #1C1814;
+  /* Palette — "Pompeii": plaster ground, terracotta panels, gilded detail */
+  --ink:        #261C15;   /* warm near-black brown — body text on light */
   --ink-mid:    #3A342B;
-  --vellum:     #F6F2EB;
-  --vellum-mid: #EBE5DA;
-  --charcoal:   #14110D;
-  --cream:      #EDE7DA;
-  --gold:       #7D5C14;   /* primary — dark antique gold, accessible on vellum */
-  --gold-warm:  #C4913A;   /* display gold — decorative use on dark backgrounds */
-  --terra:      #962E1A;   /* secondary — Pompeian red, blockquotes and borders */
-  --muted:      #6B6052;
+  --plaster:    #F8F7F4;   /* light ground — clean warm white, fresh plaster */
+  --plaster-mid:#EFECE4;   /* raised surface */
+  --terracotta: #6E2A18;   /* dark sections — deep Pompeian terracotta */
+  --terracotta-deep: #551F11; /* footer — deepest, grounds the page */
+  --cream:      #F0E9DB;   /* text on terracotta */
+  --gold:       #7D5C14;   /* primary accent — antique gold, on light */
+  --gold-warm:  #C8983F;   /* display gold — decorative, on terracotta */
+  --muted:      #6E6256;
   --faint:      #9A9082;
 
-  --rule:     rgba(28, 24, 20, 0.12);
-  --rule-mid: rgba(28, 24, 20, 0.22);
+  --rule:     rgba(38, 28, 21, 0.13);
+  --rule-mid: rgba(38, 28, 21, 0.22);
 
   /* Type families */
   --display: 'Newsreader', Georgia, serif;
@@ -70,7 +70,7 @@ html {
 }
 
 body {
-  background: var(--vellum);
+  background: var(--plaster);
   color: var(--ink);
   font-family: var(--body);
   font-size: var(--t-base);
@@ -116,7 +116,7 @@ a:hover {
   top: 0; left: 0; right: 0;
   z-index: 50;
   height: var(--nav-h);
-  background: var(--vellum);
+  background: var(--plaster);
   border-bottom: 1px solid var(--rule);
   display: flex;
   align-items: center;
@@ -261,7 +261,7 @@ a:hover {
    HERO
 ───────────────────────────────────────────── */
 .hero {
-  background: var(--charcoal);
+  background: var(--terracotta);
   min-height: calc(100vh - var(--nav-h));
   display: flex;
   align-items: center;
@@ -494,7 +494,7 @@ dl.services dd:first-of-type {
    STATEMENT — FULL-WIDTH DARK BAND
 ───────────────────────────────────────────── */
 .statement {
-  background: var(--charcoal);
+  background: var(--terracotta);
   padding: var(--s20) var(--pad);
   text-align: center;
   position: relative;
@@ -565,7 +565,7 @@ dl.services dd:first-of-type {
 }
 
 .testimonial-full {
-  border-left: 2px solid var(--terra);
+  border-left: 2px solid var(--gold);
   padding-left: var(--s6);
   margin: 0;
 }
@@ -592,7 +592,7 @@ dl.services dd:first-of-type {
    SURGICAL — CLOSING DARK STATEMENT
 ───────────────────────────────────────────── */
 .surgical {
-  background: var(--charcoal);
+  background: var(--terracotta);
   padding: var(--s24) var(--pad);
   text-align: center;
   position: relative;
@@ -641,7 +641,7 @@ dl.services dd:first-of-type {
    IDEAS PAGE
 ───────────────────────────────────────────── */
 #page-ideas {
-  background: var(--charcoal);
+  background: var(--terracotta);
   min-height: calc(100vh - var(--nav-h));
   align-items: center;
   justify-content: center;
@@ -710,7 +710,7 @@ dl.services dd:first-of-type {
    FOOTER
 ───────────────────────────────────────────── */
 .site-footer {
-  background: var(--charcoal);
+  background: var(--terracotta-deep);
   padding: var(--s10) var(--pad);
 }
 
@@ -770,7 +770,7 @@ dl.services dd:first-of-type {
     top: var(--nav-h);
     left: 0;
     right: 0;
-    background: var(--vellum);
+    background: var(--plaster);
     border-bottom: 1px solid var(--rule);
     flex-direction: column;
     align-items: flex-start;
@@ -844,6 +844,6 @@ dl.services dd:first-of-type {
 }
 
 :focus-visible {
-  outline: 2px solid var(--terra);
+  outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
