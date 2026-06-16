@@ -109,6 +109,55 @@ a:hover {
 
 
 /* ─────────────────────────────────────────────
+   TEXTURE — paper grain + fresco mottle
+   Kills the dead-flat "rendered" look; surfaces read as material.
+───────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+/* Cloudy fresco unevenness across the terracotta panels */
+.hero::before,
+.statement::before,
+.surgical::before,
+#page-ideas::before,
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
+}
+
+/* Keep panel content above the mottle layer */
+.hero-inner,
+.ideas-inner,
+.footer-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Letterpress depth — cream type pressed into the terracotta */
+.hero-motto,
+.statement p,
+.surgical-quote,
+.epigraph p,
+.footer-name {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ─────────────────────────────────────────────
    NAVIGATION
 ───────────────────────────────────────────── */
 #nav {
@@ -261,11 +310,37 @@ a:hover {
    HERO
 ───────────────────────────────────────────── */
 .hero {
+  position: relative;
+  overflow: hidden;
   background: var(--terracotta);
   min-height: calc(100vh - var(--nav-h));
   display: flex;
   align-items: center;
   padding: var(--s16) var(--pad);
+}
+
+/* Torch-flame scroll cue, drawn from the seal */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--s8);
+  transform: translateX(-50%);
+  width: 14px;
+  height: 20px;
+  z-index: 1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='14' viewBox='0 0 10 14'%3E%3Cpath d='M5 0 C8 4 9 6 7.5 9.5 C6.8 11.5 3.2 11.5 2.5 9.5 C1.6 7 3.5 6 4 3 C4.3 5 5.2 6 6 6.5 C6 4 5 2 5 0 Z' fill='%23C8983F'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: 0;
+  animation: cue-in 0.8s var(--ease) 1.3s forwards, cue-bob 2.4s ease-in-out 2.1s infinite;
+}
+
+@keyframes cue-in {
+  from { opacity: 0; }
+  to   { opacity: 0.7; }
+}
+
+@keyframes cue-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(5px); }
 }
 
 .hero-inner {
@@ -351,7 +426,7 @@ a:hover {
 
 
 /* ─────────────────────────────────────────────
-   DIVIDER — DIAMOND ORNAMENT RULE
+   DIVIDER — FLEURON RULE (printer's flower)
 ───────────────────────────────────────────── */
 .divider {
   display: flex;
@@ -367,12 +442,29 @@ a:hover {
 }
 
 .divider span {
-  font-size: 0.35rem;
-  color: var(--gold-warm);
-  padding: 0 var(--s6);
-  line-height: 1;
-  position: relative;
-  top: -1px;
+  flex: none;
+  width: 36px;
+  height: 16px;
+  margin: 0 var(--s6);
+  font-size: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='16' viewBox='0 0 36 16'%3E%3Cg fill='%23C8983F'%3E%3Cpath d='M18 3 L21 8 L18 13 L15 8 Z'/%3E%3Cpath d='M15 8 C9 3 3 5 1 8 C3 11 9 13 15 8 Z'/%3E%3Cpath d='M21 8 C27 3 33 5 35 8 C33 11 27 13 21 8 Z'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+
+/* ─────────────────────────────────────────────
+   MEANDER — Greek key band
+───────────────────────────────────────────── */
+.meander {
+  height: 18px;
+  background-color: var(--terracotta);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16' viewBox='0 0 28 16'%3E%3Cpath d='M0 13 H4 V3 H22 V13 H8 V7 H16 V13 H28' fill='none' stroke='%23C8983F' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 28px 16px;
+}
+
+.meander--footer {
+  background-color: var(--terracotta-deep);
 }
 
 
@@ -401,14 +493,13 @@ a:hover {
 }
 
 .label::before {
-  content: '◆';
-  color: var(--gold-warm);
-  margin-right: 0.6em;
-  font-size: 0.75em;
-  position: relative;
-  top: -0.05em;
+  content: '';
   display: inline-block;
-  letter-spacing: 0;
+  width: 0.7em;
+  height: 1em;
+  margin-right: 0.6em;
+  vertical-align: -0.18em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='14' viewBox='0 0 10 14'%3E%3Cpath d='M5 0 C8 4 9 6 7.5 9.5 C6.8 11.5 3.2 11.5 2.5 9.5 C1.6 7 3.5 6 4 3 C4.3 5 5.2 6 6 6.5 C6 4 5 2 5 0 Z' fill='%23C8983F'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 
@@ -444,6 +535,7 @@ dl.services {
   grid-template-columns: 175px 1fr;
   column-gap: var(--s10);
   margin-top: var(--s6);
+  counter-reset: svc;
 }
 
 dl.services dt {
@@ -456,6 +548,19 @@ dl.services dt {
   border-top: 1px solid var(--rule);
   margin: 0;
   align-self: start;
+}
+
+dl.services dt::before {
+  counter-increment: svc;
+  content: counter(svc, upper-roman);
+  display: inline-block;
+  min-width: 1.7em;
+  font-family: var(--display);
+  font-style: normal;
+  font-size: var(--t-label);
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  vertical-align: 0.1em;
 }
 
 dl.services dt:first-child {
@@ -480,13 +585,31 @@ dl.services dd:first-of-type {
 
 
 /* ─────────────────────────────────────────────
-   ASIDE / FOOTNOTE
+   FOOTNOTE — scholarly dagger aside
 ───────────────────────────────────────────── */
-.aside {
-  margin-top: var(--s6);
+.footnote {
+  display: flex;
+  gap: 0.6em;
+  margin-top: var(--s8);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--rule);
   font-size: var(--t-sm);
   color: var(--faint);
   font-style: italic;
+}
+
+.footnote .fn-mark {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.fn-ref {
+  color: var(--gold);
+  font-style: normal;
+  font-size: 0.7em;
+  text-decoration: none;
+  vertical-align: super;
+  margin-left: 0.1em;
 }
 
 
@@ -641,6 +764,8 @@ dl.services dd:first-of-type {
    IDEAS PAGE
 ───────────────────────────────────────────── */
 #page-ideas {
+  position: relative;
+  overflow: hidden;
   background: var(--terracotta);
   min-height: calc(100vh - var(--nav-h));
   align-items: center;
@@ -710,6 +835,8 @@ dl.services dd:first-of-type {
    FOOTER
 ───────────────────────────────────────────── */
 .site-footer {
+  position: relative;
+  overflow: hidden;
   background: var(--terracotta-deep);
   padding: var(--s10) var(--pad);
 }
@@ -838,8 +965,13 @@ dl.services dd:first-of-type {
   .hero-seal,
   .hero-rule,
   .hero-motto,
-  .hero-year {
+  .hero-year,
+  .scroll-cue {
     animation: none;
+  }
+
+  .scroll-cue {
+    opacity: 0.7;
   }
 }
 
