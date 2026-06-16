@@ -361,37 +361,37 @@ body::before {
 }
 
 .hero-motto {
-  font-family: var(--display);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-family: var(--body); /* EB Garamond — full polytonic Greek coverage */
+  font-size: clamp(1.85rem, 3.5vw, 2.9rem);
   font-weight: 400;
   font-style: normal;
   color: var(--cream);
-  letter-spacing: 0.015em;
-  line-height: 1.25;
-  margin-bottom: var(--s8);
+  letter-spacing: 0.06em; /* inscription-like spacing */
+  line-height: 1.3;
+  margin-bottom: var(--s6);
   animation: hero-rise 0.8s var(--ease) 0.5s both;
 }
 
 .hero-gloss {
-  margin-bottom: var(--s8);
+  margin-bottom: var(--s10);
   animation: hero-fade 0.7s var(--ease) 0.75s both;
 }
 
 .hero-rule {
   display: block;
-  width: 40px;
+  width: 48px;
   height: 1px;
-  background: rgba(240, 233, 219, 0.5);
+  background: rgba(240, 233, 219, 0.38);
   margin-bottom: var(--s4);
 }
 
 .hero-translation {
   font-family: var(--display);
-  font-size: var(--t-md);
+  font-size: var(--t-sm); /* caption scale — subordinate to the inscription */
   font-style: italic;
-  font-weight: 300;
-  color: rgba(240, 233, 219, 0.88);
-  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(240, 233, 219, 0.78);
+  line-height: 1.55;
   margin-bottom: var(--s2);
 }
 
