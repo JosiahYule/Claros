@@ -9,7 +9,9 @@
   --vellum-mid: #EBE5DA;
   --charcoal:   #14110D;
   --cream:      #EDE7DA;
-  --terra:      #8A2D19;
+  --gold:       #7D5C14;   /* primary — dark antique gold, accessible on vellum */
+  --gold-warm:  #C4913A;   /* display gold — decorative use on dark backgrounds */
+  --terra:      #962E1A;   /* secondary — Pompeian red, blockquotes and borders */
   --muted:      #6B6052;
   --faint:      #9A9082;
 
@@ -94,7 +96,7 @@ p:last-child {
 }
 
 a {
-  color: var(--terra);
+  color: var(--gold);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -191,16 +193,16 @@ a:hover {
 }
 
 .nav-contact {
-  color: var(--terra);
+  color: var(--gold);
 }
 
 .nav-contact:hover {
-  color: var(--terra);
+  color: var(--gold);
   opacity: 0.7;
 }
 
 .nav-contact.active {
-  border-bottom-color: var(--terra);
+  border-bottom-color: var(--gold);
 }
 
 .nav-toggle {
@@ -301,7 +303,7 @@ a:hover {
   display: block;
   width: 48px;
   height: 1px;
-  background: var(--terra);
+  background: var(--gold-warm);
   margin-bottom: var(--s6);
   animation: hero-rule 0.7s var(--ease) 0.4s both;
 }
@@ -349,12 +351,28 @@ a:hover {
 
 
 /* ─────────────────────────────────────────────
-   DIVIDER
+   DIVIDER — DIAMOND ORNAMENT RULE
 ───────────────────────────────────────────── */
-hr.divider {
-  border: none;
-  border-top: 1px solid var(--rule);
-  margin: 0;
+.divider {
+  display: flex;
+  align-items: center;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.divider span {
+  font-size: 0.35rem;
+  color: var(--gold-warm);
+  padding: 0 var(--s6);
+  line-height: 1;
+  position: relative;
+  top: -1px;
 }
 
 
@@ -380,6 +398,17 @@ hr.divider {
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: var(--s6);
+}
+
+.label::before {
+  content: '◆';
+  color: var(--gold-warm);
+  margin-right: 0.6em;
+  font-size: 0.75em;
+  position: relative;
+  top: -0.05em;
+  display: inline-block;
+  letter-spacing: 0;
 }
 
 
@@ -468,6 +497,23 @@ dl.services dd:first-of-type {
   background: var(--charcoal);
   padding: var(--s20) var(--pad);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.statement::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  height: 380px;
+  background: url('claros-seal.png') center / contain no-repeat;
+  filter: invert(1);
+  mix-blend-mode: screen;
+  opacity: 0.06;
+  pointer-events: none;
 }
 
 .statement p {
@@ -479,6 +525,7 @@ dl.services dd:first-of-type {
   max-width: 720px;
   margin: 0 auto;
   line-height: 1.55;
+  position: relative;
 }
 
 
@@ -548,6 +595,23 @@ dl.services dd:first-of-type {
   background: var(--charcoal);
   padding: var(--s24) var(--pad);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.surgical::after {
+  content: '';
+  position: absolute;
+  left: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  height: 380px;
+  background: url('claros-seal.png') center / contain no-repeat;
+  filter: invert(1);
+  mix-blend-mode: screen;
+  opacity: 0.06;
+  pointer-events: none;
 }
 
 .surgical-quote {
@@ -559,6 +623,7 @@ dl.services dd:first-of-type {
   line-height: 1;
   letter-spacing: -0.01em;
   margin-bottom: var(--s6);
+  position: relative;
 }
 
 .surgical-cite {
@@ -568,6 +633,7 @@ dl.services dd:first-of-type {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(237, 231, 218, 0.4);
+  position: relative;
 }
 
 
@@ -628,9 +694,9 @@ dl.services dd:first-of-type {
   margin-top: var(--s6);
   font-family: var(--body);
   font-size: var(--t-md);
-  color: var(--terra);
+  color: var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid var(--terra);
+  border-bottom: 1px solid var(--gold);
   padding-bottom: 2px;
   transition: opacity 0.15s;
 }
