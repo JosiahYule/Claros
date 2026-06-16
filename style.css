@@ -384,52 +384,54 @@ hr.divider {
 
 
 /* ─────────────────────────────────────────────
-   WHO WE SERVE LIST
+   WHO WE SERVE
 ───────────────────────────────────────────── */
 .served {
   list-style: none;
   margin: var(--s4) 0 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .served li {
-  font-family: var(--body);
-  font-size: var(--t-base);
+  font-family: var(--display);
+  font-size: var(--t-sm);
   color: var(--muted);
-  padding: var(--s3) 0 var(--s3) var(--s6);
-  border-bottom: 1px solid var(--rule);
-  position: relative;
+  letter-spacing: 0.04em;
 }
 
-.served li:first-child {
-  border-top: 1px solid var(--rule);
-}
-
-.served li::before {
-  content: '◆';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.4em;
-  color: var(--terra);
-  line-height: 1;
+.served li:not(:last-child)::after {
+  content: ' · ';
+  color: var(--faint);
+  padding: 0 0.2em;
 }
 
 
 /* ─────────────────────────────────────────────
    SERVICES
 ───────────────────────────────────────────── */
+dl.services {
+  display: grid;
+  grid-template-columns: 175px 1fr;
+  column-gap: var(--s10);
+  margin-top: var(--s6);
+}
+
 dl.services dt {
   font-family: var(--display);
-  font-size: var(--t-md);
+  font-size: var(--t-base);
   font-weight: 400;
   font-style: italic;
   color: var(--ink);
-  margin-top: var(--s8);
+  padding: var(--s6) 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+  align-self: start;
 }
 
 dl.services dt:first-child {
-  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
 }
 
 dl.services dd {
@@ -437,15 +439,14 @@ dl.services dd {
   font-size: var(--t-base);
   line-height: 1.72;
   color: var(--muted);
-  margin: var(--s2) 0 var(--s6);
-  padding-bottom: var(--s6);
-  border-bottom: 1px solid var(--rule);
+  padding: var(--s6) 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
 }
 
-dl.services dd:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0;
+dl.services dd:first-of-type {
+  border-top: none;
+  padding-top: 0;
 }
 
 
@@ -461,18 +462,23 @@ dl.services dd:last-child {
 
 
 /* ─────────────────────────────────────────────
-   RECORD BLOCKQUOTE
+   STATEMENT — FULL-WIDTH DARK BAND
 ───────────────────────────────────────────── */
-blockquote.record {
-  margin-top: var(--s8);
-  padding: var(--s6);
-  background: var(--vellum-mid);
-  border-left: 2px solid var(--terra);
-  font-family: var(--body);
-  font-size: var(--t-base);
+.statement {
+  background: var(--charcoal);
+  padding: var(--s20) var(--pad);
+  text-align: center;
+}
+
+.statement p {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 300;
   font-style: italic;
-  color: var(--ink-mid);
-  line-height: 1.7;
+  color: var(--cream);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.55;
 }
 
 
