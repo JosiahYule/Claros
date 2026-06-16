@@ -262,26 +262,36 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--s24) var(--pad) var(--s16);
+  padding: var(--s32) var(--pad) var(--s20);
   text-align: center;
 }
 
 .hero-seal {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   object-fit: contain;
   opacity: 0.88;
   margin-bottom: var(--s10);
+  animation: hero-seal 1s var(--ease) both;
+}
+
+.hero-ornament {
+  display: block;
+  font-size: 0.5rem;
+  color: var(--terra);
+  margin-bottom: var(--s8);
+  animation: hero-fade 0.6s var(--ease) 0.4s both;
 }
 
 .hero-motto {
   font-family: var(--display);
-  font-size: var(--t-lg);
+  font-size: var(--t-xl);
   font-weight: 300;
   font-style: italic;
   color: var(--ink);
   letter-spacing: 0.01em;
-  margin-bottom: var(--s3);
+  margin-bottom: var(--s4);
+  animation: hero-rise 0.8s var(--ease) 0.6s both;
 }
 
 .hero-year {
@@ -291,6 +301,22 @@ a:hover {
   letter-spacing: 0.28em;
   color: var(--faint);
   margin-bottom: 0;
+  animation: hero-fade 0.6s var(--ease) 0.9s both;
+}
+
+@keyframes hero-seal {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 0.88; transform: scale(1); }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 
@@ -655,7 +681,11 @@ blockquote.record {
    ACCESSIBILITY
 ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .page.active {
+  .page.active,
+  .hero-seal,
+  .hero-ornament,
+  .hero-motto,
+  .hero-year {
     animation: none;
   }
 }
