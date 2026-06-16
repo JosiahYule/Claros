@@ -367,7 +367,7 @@ body::before {
 }
 
 .hero-gloss {
-  margin-bottom: var(--s10);
+  margin-bottom: var(--s8);
   animation: hero-fade 0.7s var(--ease) 0.75s both;
 }
 
@@ -376,7 +376,8 @@ body::before {
   width: 48px;
   height: 1px;
   background: rgba(240, 233, 219, 0.38);
-  margin: var(--s4) 0;
+  margin: 0 0 var(--s8);
+  animation: hero-fade 0.7s var(--ease) 0.85s both;
 }
 
 .hero-translation {
