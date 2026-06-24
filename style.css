@@ -678,6 +678,47 @@ dl.services dd:first-of-type {
   border-top: 1px solid var(--rule);
 }
 
+.credentials {
+  list-style: none;
+  margin: var(--s4) 0 var(--s10);
+}
+
+.credentials li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s2) var(--s6);
+  font-family: var(--body);
+  font-size: var(--t-base);
+  color: var(--ink);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.credentials li:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.credential-degree {
+  font-style: italic;
+  flex: 1 1 auto;
+}
+
+.credential-school {
+  color: var(--muted);
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+.credential-year {
+  font-family: var(--display);
+  font-size: var(--t-sm);
+  letter-spacing: 0.04em;
+  color: var(--faint);
+  flex: 0 0 auto;
+}
+
 .testimonial-full {
   border-left: 2px solid var(--terracotta);
   padding-left: var(--s6);
@@ -779,6 +820,15 @@ dl.services dd:first-of-type {
 
 .epigraph footer cite em {
   font-style: italic;
+}
+
+.ideas-gloss {
+  font-family: var(--body);
+  font-size: var(--t-sm);
+  color: rgba(237, 231, 218, 0.75);
+  line-height: 1.75;
+  margin-top: var(--s10);
+  text-align: left;
 }
 
 
