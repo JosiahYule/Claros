@@ -722,7 +722,7 @@ dl.services dd:first-of-type {
 .testimonial-full {
   border-left: 2px solid var(--terracotta);
   padding-left: var(--s6);
-  margin: 0;
+  margin: 0 0 var(--s10);
 }
 
 .testimonial-full p {
